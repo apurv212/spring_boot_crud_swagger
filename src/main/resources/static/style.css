@@ -1,0 +1,96 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:nth-child(3) {
+  background-color: #28a745;
+  color: white;
+}
+.add-btn{
+  border: 2px solid  green;
+  box-shadow: 0px 0px 10px greenyellow;
+}
+.add-btn:hover {
+  background-color: lightgreen;
+}
+.add-btn:active {
+  background-color: yellow;
+}
+.update-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+td input {
+  width: 90%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  input {
+    width: 90%;
+  }
+  table {
+    width: 100%;
+  }
+}

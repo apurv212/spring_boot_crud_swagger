@@ -67,9 +67,30 @@ public class Bookcontrol {
 
     @Operation(summary = "delete a new book")
     @DeleteMapping("/deletebookbyid/{id}")
-    public ResponseEntity<Object> deletebook(@PathVariable Long id){
-        bookRepo.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<String> deleteBook(@PathVariable Long id) {
+        if (bookRepo.existsById(id)) {
+            bookRepo.deleteById(id);
+            return new ResponseEntity<>("Book deleted successfully", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Book not found", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Operation(summary = "Update a book by ID")
+    @PutMapping("/updatebook/{id}")
+    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails) {
+        Optional<Book> existingBook = bookRepo.findById(id);
+
+        if (existingBook.isPresent()) {
+            Book book = existingBook.get();
+            book.setTitle(bookDetails.getTitle());
+            book.setAuthor(bookDetails.getAuthor());
+
+            Book updatedBook = bookRepo.save(book);
+            return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 
